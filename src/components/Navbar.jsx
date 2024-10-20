@@ -1,15 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
 
 const dataButtons = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
+    { label: "Home", href: "/dashboard" },
+    { label: "Support", href: "/support" },
+    { label: "Wellbeing", href: "/exercise" },
+    { label: "Contact", href: "/contact" },
+    { label: "About", href: "/about" },
+    { label: "SOS", href: "/sos" },  // Placeholder, no route defined
 ];
 
 export default function Navbar() {
     const [elementFocused, setElementFocused] = useState(null);
+    const location = useLocation();  // To get current location
 
     const handleHoverButton = (index) => {
         setElementFocused(index);
@@ -21,11 +25,11 @@ export default function Navbar() {
             onMouseLeave={() => handleHoverButton(null)}
         >
             {dataButtons.map((button, index) => (
-                <button
-                    className="relative inline-flex w-fit mx-2 my-2 sm:my-0 px-4 py-2 font-semibold text-gray-600 dark:text-gray-300 text-lg rounded-md transition-all duration-300 ease-in-out hover:text-gray-900 hover:dark:text-gray-100"
+                <Link
+                    to={button.href} // Use the href for navigation
+                    className={`relative inline-flex w-fit mx-2 my-2 sm:my-0 px-4 py-2 font-semibold text-gray-600 dark:text-gray-300 text-lg rounded-md transition-all duration-300 ease-in-out hover:text-gray-900 hover:dark:text-gray-100 ${location.pathname === button.href ? 'text-gray-900 dark:text-gray-100' : ''}`} // Highlight current active route
                     key={button.label}
                     onMouseEnter={() => handleHoverButton(index)}
-                    type="button"
                 >
                     {button.label}
                     <AnimatePresence>
@@ -41,7 +45,7 @@ export default function Navbar() {
                             />
                         )}
                     </AnimatePresence>
-                </button>
+                </Link>
             ))}
         </nav>
     );
