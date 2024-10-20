@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />{' '}
           <Route path="/about" element={<About />} />{' '}
           <Route path="/exercise" element={<Exercise />} />
-          {/* <Route path="/mental-health" element={<MentalHealth />} /> */}
+          <Route path="/mental-health" element={<MentalHealth />} />
           <Route path="/support" element={<Support />} />
           <Route path="/sos" element={<SOS />} />
           <Route
