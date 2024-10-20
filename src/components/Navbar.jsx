@@ -6,7 +6,6 @@ const dataButtons = [
     { label: "About", href: "#" },
     { label: "Contact", href: "#" },
     { label: "Terms & Conditions", href: "#" },
-    { label: "Cuicui.day", href: "#" },
 ];
 
 export default function Navbar() {
