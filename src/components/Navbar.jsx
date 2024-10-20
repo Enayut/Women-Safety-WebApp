@@ -6,7 +6,6 @@ const dataButtons = [
     { label: "Home", href: "/dashboard" },
     { label: "Support", href: "/support" },
     { label: "Wellbeing", href: "/exercise" },
-    { label: "Contact", href: "/contact" },
     { label: "About", href: "/about" },
     { label: "SOS", href: "/sos" },  // Placeholder, no route defined
 ];
